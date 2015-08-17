@@ -55,7 +55,7 @@ public class UIController
     this.brushEditController = new BrushEditController(paramGlobalWindowManager, this.navWindowController.width, this.navWindowController.height, this.navWindowController);
     
     //this.whatsNewController = new WhatsNewController(paramGlobalWindowManager, this);
-    this.navWindowController.moveWindow(Settings.getInstance().getNavX()-this.base.fullScreenX/2+37, Settings.getInstance().getNavY());//ËÆæÁΩÆUIÂàùÂßã‰ΩçÁΩÆ
+    this.navWindowController.moveWindow(Settings.getInstance().getNavX()-this.base.fullScreenX/2+37, Settings.getInstance().getNavY());//…Ë÷√UI≥ı ºŒª÷√
     
     paramGlobalWindowManager.setFocus(false);
     data = (GlobalData)this.base.context.getApplicationContext();  

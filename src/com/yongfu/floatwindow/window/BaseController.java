@@ -89,19 +89,10 @@ public abstract class BaseController
     this.width = (int)this.base.context.getResources().getDimension(paramInt1);
     this.height = (int)this.base.context.getResources().getDimension(paramInt2);
   }
-  /**
-   * 
-   * @param paramLayoutParams
-   * @param paramInt1
-   * @param paramInt2
-   * yj.chen add 匹配坐标参数
-   */
+
   protected void fixLayoutParams(WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2)
   {
-	  
-	  Log.i("jack.chen","BaseContorller.java fixLayoutParams() In  full_x="+this.base.fullScreenX+" full_y="+this.base.fullScreenY+" paramInt1="+paramInt1+" paramInt2="+paramInt1);
-	  Log.i("jack.chen","BaseContorller.java in fixLayoutParams() x="+paramLayoutParams.x+" y="+paramLayoutParams.y);
-	int i = this.base.fullScreenY / 2 - paramInt2 / 2;
+    int i = this.base.fullScreenY / 2 - paramInt2 / 2;
     int j = this.base.fullScreenY / -2 + paramInt2 / 2;
     int k = this.base.fullScreenX / -2 + paramInt1 / 2;
     int l = this.base.fullScreenX / 2 - paramInt1 / 2;
@@ -117,7 +108,7 @@ public abstract class BaseController
       paramLayoutParams.x = l;
     }
     }
-    Log.i("jack.chen","BaseContorller.java fixLayoutParams() x="+paramLayoutParams.x+" y="+paramLayoutParams.y);
+    
    
     
     /*do
@@ -163,7 +154,6 @@ public abstract class BaseController
     this.layoutParams.y = paramInt2;
     this.locX = paramInt1;
     this.locY = paramInt2;
-    Log.i("jack.chen","BaseController.java moveWindow() x="+paramInt1+" y="+paramInt2);
     this.base.windowManager.updateViewLayout (getMainView(), this.layoutParams);
   }
 
@@ -244,10 +234,9 @@ public abstract class BaseController
 	            localLayoutParams1.x = (i + localLayoutParams1.x);
 	            WindowManager.LayoutParams localLayoutParams2 = layoutParams;
 	            localLayoutParams2.y = (j + localLayoutParams2.y);
-	            fixLayoutParams(layoutParams, getWidth(), getHeight());//修改UI坐标
+	            fixLayoutParams(layoutParams, getWidth(), getHeight());
 	            locX = layoutParams.x;
 	            locY = layoutParams.y;
-	            Log.i("jack.chen","BaseController.java setMoveHandles onTouchMove() 更新UI位置   x="+layoutParams.x+" y="+layoutParams.y);
 	            base.windowManager.updateViewLayout(v, layoutParams);
 	          }
 	        }
@@ -408,7 +397,7 @@ public abstract class BaseController
 	            fixLayoutParams(layoutParams, getWidth(), getHeight());
 	            locX = layoutParams.x;
 	            locY = layoutParams.y;
-	            Log.i("jack.chen","BaseController.java setMoveHandles 2 onTouchMove() 更新UI位置   bmove = true x="+layoutParams.x+" y="+layoutParams.y);
+	            Log.d("jack.chen","BaseController.java onTouchMove() 更新UI位置   bmove = true");
 	            base.windowManager.updateViewLayout(mainview, layoutParams);//更新UI位置
 				setButtonEnable(false);
 	          }

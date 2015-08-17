@@ -30,6 +30,10 @@
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
 
     <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <supports-screens
         android:anyDensity="true"
@@ -59,6 +63,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.yongfu.floatwindow.camera.CameraActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
 
         <receiver android:name=".penandpaper.BootReceiver" >
             <intent-filter>
@@ -68,6 +78,7 @@
 
                 <category android:name="android.intent.category.HOME" />
 >
+
             </intent-filter>
         </receiver>
 

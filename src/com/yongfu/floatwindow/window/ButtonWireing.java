@@ -27,50 +27,43 @@ import android.content.pm.ResolveInfo;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
+import android.hardware.input.InputManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
 //import android.os.IGpioControl;
 import android.os.Message;
-import android.os.RemoteException;
 //import android.os.ServiceManager;
 import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.view.WindowManager;
+
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView.OnItemLongClickListener;
+
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.AdapterView;
+
+
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.GridView;
+
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mstar.sourcec.control.InputSourceControl;
 import com.mstar.sourcec.control.InputSourceControl.MSTAR_INPUTSOURCE;
 import com.yongfu.floatwindow.R;
+import com.yongfu.floatwindow.camera.CameraActivity;
 import com.yongfu.floatwindow.penandpaper.ButtonGroup;
 import com.yongfu.floatwindow.penandpaper.Settings;
 import com.yongfu.floatwindow.paintview.BrushEditorView;
-import com.yongfu.floatwindow.paintview.BrushEditorView.ColorSelected;
+
 import com.yongfu.floatwindow.paintview.ColorDefine;
 import com.yongfu.floatwindow.paintview.PaintView;
 
@@ -85,10 +78,10 @@ public class ButtonWireing {
 	 * penButton = 2131230729;
 	 */
 
-	private View brushSettingsRoot;
+//	private View brushSettingsRoot;
 	private int prevColor = -1;
 	public final UIController window;
-	private Boolean bPaint = false;
+//	private Boolean bPaint = false;
 //	private IGpioControl m_IGpioControl;
 	private GlobalData data;
 	private static final String HistoryDialogAction = "com.labwe.showHistoryDialog";
@@ -646,19 +639,24 @@ public class ButtonWireing {
 				// reseatWindow(1);
 				// window.toggleVideoSrcShowing();
 				// isVideoShowing = true;
-
+				Intent in = new Intent();
+				in.setClass(v.getContext(), CameraActivity.class);
+				in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				v.getContext().startActivity(in);
+				window.getNavWindow().restoreTransperancy(false);
+				window.getNavWindow().setFocu_un();
 				if (usbstatus == 1) {
-					Intent takeScreenshotIntent = new Intent();
-					takeScreenshotIntent.setAction(strTakeScreenshotAction);
-					v.getContext().sendBroadcast(takeScreenshotIntent);
-					window.getNavWindow().restoreTransperancy(false);
-					window.getNavWindow().setFocu_un();
+//					Intent takeScreenshotIntent = new Intent();
+//					takeScreenshotIntent.setAction(strTakeScreenshotAction);
+//					v.getContext().sendBroadcast(takeScreenshotIntent);
+//					window.getNavWindow().restoreTransperancy(false);
+//					window.getNavWindow().setFocu_un();
 				} else {
-					Toast toast = Toast.makeText(v.getContext(), "请插入U盘!",
-							Toast.LENGTH_SHORT);
-					toast.show();
-					window.getNavWindow().restoreTransperancy(false);
-					window.getNavWindow().setFocu_un();
+//					Toast toast = Toast.makeText(v.getContext(), "请插入U盘!",
+//							Toast.LENGTH_SHORT);
+//					toast.show();
+//					window.getNavWindow().restoreTransperancy(false);
+//					window.getNavWindow().setFocu_un();
 					/*Intent intent = new Intent(COMMING_OTHER_DEVICE);
 					Bundle bundle = new Bundle();
 					i = 4;
@@ -849,10 +847,11 @@ public class ButtonWireing {
 			public void onClick(View v) {
 				try {
 					/* Missing read/write permission, trying to chmod the file */
-					Process process;
-					process = Runtime.getRuntime().exec("adb su");
-					process = Runtime.getRuntime().exec(
-							"adb shell input keyevent 4");
+//					Process process;
+//					process = Runtime.getRuntime().exec("adb su");
+//					process = Runtime.getRuntime().exec(
+//							"adb shell input keyevent 4");
+					sendKeyEvent(KeyEvent.KEYCODE_BACK);
 					window.getNavWindow().restoreTransperancy(false);
 					window.getNavWindow().setFocu_un();
 				} catch (Exception e) {
@@ -949,6 +948,20 @@ public class ButtonWireing {
 		 */
 	}
 
+	
+	private void sendKeyEvent(int keycode) {
+		
+		long now = SystemClock.uptimeMillis();
+		try {
+			KeyEvent downEvent = new KeyEvent(now, now, KeyEvent.ACTION_DOWN, keycode, 0);
+			KeyEvent upEvent = new KeyEvent(now, now, KeyEvent.ACTION_UP, keycode, 0);
+			InputManager.getInstance().injectInputEvent(downEvent,InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+			InputManager.getInstance().injectInputEvent(upEvent,InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public void restoreBrushButton(View paramView, boolean paramBoolean) {
 		setBackground(paramView, paramBoolean);
 	}
@@ -964,7 +977,7 @@ public class ButtonWireing {
 		setNavOnClickListeners(paramNavWindowController, paramView,
 				paramPaintView, videosrcview, historyview, openview, saveview,
 				paramRunnable);
-		this.brushSettingsRoot = paramView.findViewById(R.id.brushSettingsRoot);
+//		this.brushSettingsRoot = paramView.findViewById(R.id.brushSettingsRoot);
 		setBrushStyleButtons(paramView);
 		setBrushColorButton(paramView);
 		setBrushSizeSlider(paramView);

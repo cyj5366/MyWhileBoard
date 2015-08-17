@@ -2,7 +2,7 @@ package com.yongfu.floatwindow.window;
 
 
 
-import android.annotation.TargetApi;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.PixelFormat;
