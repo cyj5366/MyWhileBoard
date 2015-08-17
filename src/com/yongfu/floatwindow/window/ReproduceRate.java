@@ -1,7 +1,9 @@
 
 package com.yongfu.floatwindow.window;
 
-import com.mstar.android.tv.TvPictureManager;
+import android.util.Log;
+
+//import com.mstar.android.tv.TvPictureManager;
 
 public class ReproduceRate {
     public reduceRate _reduceRate;
@@ -10,7 +12,7 @@ public class ReproduceRate {
 
     public Orientation direction;
 
-    private TvPictureManager mTvPictureManager;
+ //   private TvPictureManager mTvPictureManager;
 
     public class reduceRate {
         public int topRate;
@@ -42,7 +44,7 @@ public class ReproduceRate {
         scaleval = scalevalue;
         hstart = 192;// default 1080P
         direction = Orientation.REPRODUCE_ADJUST_ALL;
-        mTvPictureManager = TvPictureManager.getInstance();
+//        mTvPictureManager = TvPictureManager.getInstance();
     }
 
     @SuppressWarnings("unused")
@@ -56,7 +58,8 @@ public class ReproduceRate {
     }
 
     private void getResolutionInfo(int[] array_wh) {
-        int resolution = mTvPictureManager.GetResloution();
+    	Log.d("jack.chen","getResolutionInfo array_wh");
+        int resolution = EN_DISPLAY_RES_TYPE.DISPLAY_DACOUT_1080P_60.getRetCode();//mTvPictureManager.GetResloution();
 
         if (resolution == EN_DISPLAY_RES_TYPE.DISPLAY_DACOUT_1080P_50.getRetCode()) {
             array_wh[0] = 1920;

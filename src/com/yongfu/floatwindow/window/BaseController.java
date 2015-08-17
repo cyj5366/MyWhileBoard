@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
-import android.os.ServiceManager;
+//import android.os.ServiceManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,7 +29,7 @@ import com.yongfu.floatwindow.window.BaseController.MoveListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import android.os.IGpioControl;
+//import android.os.IGpioControl;
 
 
 public abstract class BaseController
@@ -46,7 +46,7 @@ public abstract class BaseController
   private ArrayList<MoveListener> moveListeners;
   protected int width;
   IntentCreator intentCreator;
-  private IGpioControl  m_IGpioControl;
+//  private IGpioControl  m_IGpioControl;
   private boolean bmove = false;
   private boolean bopen = false;  
   private static final String ShowOrHideCircle = "com.labwe.ShowOrHideCircle";
@@ -179,15 +179,16 @@ public abstract class BaseController
     }
   }
 	public void SendMsgToService(int state, int io) {
-		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager.getService("gpio"));
-		try
-		{
-			m_IGpioControl.gpioControl(state, io);
-		}
-		catch (RemoteException e)
-		{
-			
-		}
+		Log.d("jack.chen","basecontorller.java SendMsgToService state="+state+" io="+io);
+//		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager.getService("gpio"));
+//		try
+//		{
+//			m_IGpioControl.gpioControl(state, io);
+//		}
+//		catch (RemoteException e)
+//		{
+//			
+//		}
 	}
 
   

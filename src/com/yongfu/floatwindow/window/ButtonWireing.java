@@ -11,7 +11,7 @@ import java.util.List;
 
 import android.R.id;
 import android.app.ActivityManager;
-import android.app.ActivityManagerNative;
+//import android.app.ActivityManagerNative;
 import android.app.Dialog;
 import android.app.Instrumentation;
 import android.content.ActivityNotFoundException;
@@ -30,10 +30,10 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.IGpioControl;
+//import android.os.IGpioControl;
 import android.os.Message;
 import android.os.RemoteException;
-import android.os.ServiceManager;
+//import android.os.ServiceManager;
 import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -87,7 +87,7 @@ public class ButtonWireing {
 	private int prevColor = -1;
 	public final UIController window;
 	private Boolean bPaint = false;
-	private IGpioControl m_IGpioControl;
+//	private IGpioControl m_IGpioControl;
 	private GlobalData data;
 	private static final String HistoryDialogAction = "com.labwe.showHistoryDialog";
 	private static final String strTakeScreenshotAction = "com.labwe.takeScreenShot";
@@ -814,13 +814,14 @@ public class ButtonWireing {
 	}
 
 	public void SendMsgToService(int state, int io) {
-		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager
-				.getService("gpio"));
-		try {
-			m_IGpioControl.gpioControl(state, io);
-		} catch (RemoteException e) {
-
-		}
+		Log.d("jack.chen","buttonwireing,java SendMsgToService state="+state+" io="+io);
+//		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager
+//				.getService("gpio"));
+//		try {
+//			m_IGpioControl.gpioControl(state, io);
+//		} catch (RemoteException e) {
+//
+//		}
 	}
 
 	private void setPaintButton(NavWindowController paramNavWindowController) {

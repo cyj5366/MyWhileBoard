@@ -14,10 +14,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.IGpioControl;
+//import android.os.IGpioControl;
 import android.os.Message;
 import android.os.RemoteException;
-import android.os.ServiceManager;
+//import android.os.ServiceManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -54,7 +54,7 @@ public class DrawingService extends Service
 	private UIController uIController;
 	private GlobalData data;
 	private  int RecType;	
-	private IGpioControl  m_IGpioControl;
+//	private IGpioControl  m_IGpioControl;
 	private static final String RECEIVE_ACTION = "com.labwe.service.receiver";
 	private static final String ANNOTATE_ACTION = "com.labwe.annotate"; 
 	private static final String ShowCircle = "com.labwe.ShowCircle";
@@ -65,15 +65,16 @@ public class DrawingService extends Service
 
 
 	public void SendMsgToService(int state, int io) {
-		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager.getService("gpio"));
-		try
-		{
-			m_IGpioControl.gpioControl(state, io);
-		}
-		catch (RemoteException e)
-		{
-
-		}
+		Log.d("jack.chen","drawingservice.java SendMsgToService state="+state+" io="+io);
+//		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager.getService("gpio"));
+//		try
+//		{
+//			m_IGpioControl.gpioControl(state, io);
+//		}
+//		catch (RemoteException e)
+//		{
+//
+//		}
 	}  
 
 	private void hideNotifications()
@@ -107,15 +108,18 @@ public class DrawingService extends Service
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
+			Log.d("jack.chen","DrawingService.java touch_SendMsg = "+msg.what);
 			try {
 				switch (msg.what) {
 				case 0://hide
 				if (uIController != null)
 				{
+					Log.d("jack.chen","DrawingService.java uIController != null");
 					if(data.getValue()==1)//PC模式
 						SendMsgToService(10,11);//发android PC
-					uIController.HideNavWindow();
 					Log.i("pizhu", "HideNavWindow");
+					uIController.HideNavWindow();
+					
 					close_flag = true;
 					if(timer!=null){
 						timer.cancel();
@@ -176,7 +180,7 @@ public class DrawingService extends Service
 			this.uIController.getNavWindow().setMoveHandles();
 			return;
 		}
-		//this.uIController.restore();
+		//this.uIController.restore();//jack.chen add 重新点击app图标显示圆盘ui
 	}
 
 	private void onIntentCommandStop()
@@ -294,7 +298,7 @@ public class DrawingService extends Service
 	{
 		//Toast.makeText(this, "Released by POPDA ( Persian OPDA ) NimA79 - A.l.i", 1).show();
 		super.onCreate();
-		Log.i("pizhu", "onCreate");
+		Log.i("pizhu", "DrawingService.java onCreate");
 		SendMsgToService(11,11);
 		this.thisService = this;
 		Notification n = new Notification();
@@ -400,7 +404,7 @@ public class DrawingService extends Service
 		if ((paramIntent != null) && (paramIntent.getExtras() != null))
 		{
 			String str = paramIntent.getExtras().getString(IntentCommands.command.toString());
-			Log.d("ScreenDraw_DrawService", str);
+			Log.d("ScreenDraw_DrawService","onStartCommand()="+ str);
 			if (str != null)
 				switchCommand(IntentCommands.valueOf(str));
 		}
@@ -418,6 +422,7 @@ public class DrawingService extends Service
 
 	public void switchCommand(IntentCommands paramIntentCommands)
 	{
+		Log.d("jack.chen","DrawingService.java +switchCommand()="+paramIntentCommands.toString());
 		//    if (paramIntentCommands == IntentCommands.stop)
 		//      onIntentCommandStop();
 		do

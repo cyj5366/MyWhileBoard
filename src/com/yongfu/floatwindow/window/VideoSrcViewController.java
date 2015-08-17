@@ -42,17 +42,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-import android.hardware.display.DisplayManager;
+//import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.ServiceManager;
-import android.os.SystemProperties;
+//import android.os.ServiceManager;
+//import android.os.SystemProperties;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.IWindowManager;
+//import android.view.IWindowManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -81,27 +81,27 @@ import android.widget.Toast;
 
 
 
-import com.android.server.tv.DataBaseDeskImpl;
+//import com.android.server.tv.DataBaseDeskImpl;
 
 import com.yongfu.floatwindow.window.ChangeInputSource;
-import com.mstar.android.MKeyEvent;
-import com.mstar.android.tv.TvAtscChannelManager;
-import com.mstar.android.tv.TvChannelManager;
-import com.mstar.android.tv.TvCommonManager;
-import com.mstar.android.tv.TvPictureManager;
-import com.mstar.android.tv.TvPipPopManager;
-import com.mstar.android.tvapi.common.PictureManager;
-import com.mstar.android.tvapi.common.TvManager;
-import com.mstar.android.tvapi.common.exception.TvCommonException;
-import com.mstar.android.tvapi.common.vo.Enum3dType;
-import com.mstar.android.tvapi.common.vo.EnumFirstServiceInputType;
-import com.mstar.android.tvapi.common.vo.EnumFirstServiceType;
-import com.mstar.android.tvapi.common.vo.EnumPipModes;
-import com.mstar.android.tvapi.common.vo.EnumScalerWindow;
-import com.mstar.android.tvapi.common.vo.EnumThreeDVideoDisplayFormat;
-import com.mstar.android.tvapi.common.vo.PanelProperty;
-import com.mstar.android.tvapi.common.vo.TvOsType.EnumInputSource;
-import com.mstar.android.tvapi.common.vo.VideoWindowType;
+//import com.mstar.android.MKeyEvent;
+//import com.mstar.android.tv.TvAtscChannelManager;
+//import com.mstar.android.tv.TvChannelManager;
+//import com.mstar.android.tv.TvCommonManager;
+//import com.mstar.android.tv.TvPictureManager;
+//import com.mstar.android.tv.TvPipPopManager;
+//import com.mstar.android.tvapi.common.PictureManager;
+//import com.mstar.android.tvapi.common.TvManager;
+//import com.mstar.android.tvapi.common.exception.TvCommonException;
+//import com.mstar.android.tvapi.common.vo.Enum3dType;
+//import com.mstar.android.tvapi.common.vo.EnumFirstServiceInputType;
+//import com.mstar.android.tvapi.common.vo.EnumFirstServiceType;
+//import com.mstar.android.tvapi.common.vo.EnumPipModes;
+//import com.mstar.android.tvapi.common.vo.EnumScalerWindow;
+//import com.mstar.android.tvapi.common.vo.EnumThreeDVideoDisplayFormat;
+//import com.mstar.android.tvapi.common.vo.PanelProperty;
+//import com.mstar.android.tvapi.common.vo.TvOsType.EnumInputSource;
+//import com.mstar.android.tvapi.common.vo.VideoWindowType;
 import com.yongfu.floatwindow.R;
 
 public class VideoSrcViewController extends BaseController

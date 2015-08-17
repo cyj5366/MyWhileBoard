@@ -2,7 +2,7 @@
 package com.yongfu.floatwindow.window;
 
 import android.os.IBinder;
-import android.os.ServiceManager;
+//import android.os.ServiceManager;
 import android.os.RemoteException;
 import android.os.Parcel;
 
@@ -28,7 +28,7 @@ public class PictureSkin {
 
     public void Connect() {
         if (connected == false) {
-            surfaceFlinger = ServiceManager.getService("SurfaceFlinger");
+   //jack.chen         surfaceFlinger = ServiceManager.getService("SurfaceFlinger");
             if (surfaceFlinger != null) {
                 connected = true;
             } else {

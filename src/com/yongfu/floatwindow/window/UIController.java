@@ -40,6 +40,7 @@ public class UIController
 
   public UIController(GlobalWindowManager paramGlobalWindowManager)
   {
+	  Log.d("jack.chen","UIController.java UIController()"); 
     this.base = paramGlobalWindowManager;
     this.paintViewController = new PaintViewController(paramGlobalWindowManager, this);
     //this.helpWindowController = new HelpWindowController(paramGlobalWindowManager, this);
@@ -62,11 +63,13 @@ public class UIController
 
   private void setAll(boolean paramBoolean)
   {
+	  Log.d("jack.chen","UIController.java setAll() paramBoolean="+paramBoolean);
     setAll(paramBoolean, paramBoolean, paramBoolean, paramBoolean, paramBoolean, paramBoolean);
   }
 
   public void changeOrientation(int paramInt)
   {
+	Log.d("jack.chen","UIController.java changeOrientation()");   
     this.base.setFullScreenSize();
     this.paintViewController.setScreenOrientation(paramInt);
     if (!(this.isHidden))
@@ -111,15 +114,18 @@ public class UIController
 
   public void clearPaint()
   {
+	  Log.d("jack.chen","UIController.java clearPaint()"); 
     this.paintViewController.clearPaint();
   }
   
   public void ShowNavWindow()
   {
+	  Log.d("jack.chen","UIController.java ShowNavWindow()"); 
 	  navWindowController.show();
   }
   public void HideNavWindow()
   {
+	  Log.d("jack.chen","UIController.java HideNavWindow()");
 	  navWindowController.hide();
 	  if(this.paintViewController.getShowStatus()){
 	       this.paintViewController.setShowing(false);
@@ -138,6 +144,7 @@ public class UIController
 
   public boolean closeBrush()
   {
+	  Log.d("jack.chen","UIController.java closeBrush()");  
     this.brushEditController.close();
     return false;
   }
@@ -145,10 +152,12 @@ public class UIController
 
   public void set_un_focus()
   {
+	  Log.d("jack.chen","UIController.java set_un_focus() ");
 	  brushEditController.setFocuse_un();
   }
   public boolean closeOpenfile()
   {	  
+	  Log.d("jack.chen","UIController.java closeOpenfile() ");
 	  this.openfileController.close();
 	  return false;
   }
@@ -156,12 +165,14 @@ public class UIController
   
   public boolean closeVideoSrcfile()
   {	  
+	  Log.d("jack.chen","UIController.java closeVideoSrcfile() ");
 	  this.videosrcController.close();
 	  return false;
   }  
   
   public boolean closeHistoryfile()
   {	  
+	  Log.d("jack.chen","UIController.java closeHistoryfile() ");
 	  this.historyController.close();
 	  return false;
   }    
@@ -169,27 +180,32 @@ public class UIController
   
   public boolean CloseSaveFile()
   {
+	  Log.d("jack.chen","UIController.java CloseSaveFile() ");
 	 // this.saveController.close();
 	  return false;
   }
 
   public View getBrushEditLayout()
   {
+	  Log.d("jack.chen","UIController.java getBrushEditLayout() ");
     return this.brushEditController.editBrushLayout;
   }
   
   public View getOpenFileLayout()
   {
+	  Log.d("jack.chen","UIController.java getOpenFileLayout() ");
 	  return this.openfileController.openviewLayout;
   }
   
   public View getVideoSrcFileLayout()
   {
+	  Log.d("jack.chen","UIController.java getVideoSrcFileLayout() ");
 	  return this.videosrcController.videosrcviewLayout;
   }  
   
   public View getHistoryLayout()
   {
+	  Log.d("jack.chen","UIController.java getHistoryLayout() ");
 	  return this.historyController.historyViewlayout;
   }   
   
@@ -201,49 +217,59 @@ public class UIController
 
   public FrameLayout getMainLayout()
   {
+	  Log.d("jack.chen","UIController.java getMainLayout() ");
     return this.navWindowController.mainLayout;
   }
 
   public NavWindowController getNavWindow()
   {
+	  Log.d("jack.chen","UIController.java getNavWindow() ");
     return this.navWindowController;
   }
 
   public View getPaintLayout()
   {
+	  Log.d("jack.chen","UIController.java getPaintLayout() ");
     return this.paintViewController.paintView;
   }
   public boolean getPaintStatus()
   {
+	  Log.d("jack.chen","UIController.java getPaintStatus() ");
 	  return paintViewController.getShowStatus();
   }
   public boolean getBrushStatus()
   {
+	  Log.d("jack.chen","UIController.java getBrushStatus() ");
 	  return this.brushEditController.isShowing;
   }
 
   public PaintView getPaintView()
   {
+	  Log.d("jack.chen","UIController.java getPaintView() ");
     return this.paintViewController.paintView;
   }
   
   public boolean getOpenfileStatus()
   {
+	  Log.d("jack.chen","UIController.java getOpenfileStatus() ");
 	  return this.openfileController.isShowing;
   }  
   
   public boolean getVideoSrcStatus()
   {
+	  Log.d("jack.chen","UIController.java getVideoSrcStatus() ");
 	  return this.videosrcController.isShowing;
   }  
   
   public boolean getHistoryStatus()
   {
+	  Log.d("jack.chen","UIController.java getHistoryStatus() ");
 	  return this.historyController.isShowing;
   }  
 
   public void hideAll()
   {
+	Log.d("jack.chen","UIController.java hideAll()"); 
     if (!(this.isHidden))
     {
       saveAllShowing();
@@ -255,6 +281,7 @@ public class UIController
 
   public void moveNav(BaseController paramBaseController, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
+	Log.d("jack.chen","UIController.java moveNav() paramInt1="+paramInt1+" paramInt2="+paramInt2+" paramInt3="+paramInt3+" paramInt4="+paramInt4); 
     int i = this.navWindowController.layoutParams.x;
     int j = this.navWindowController.layoutParams.y;
     int k = this.navWindowController.height / 2;
@@ -278,12 +305,14 @@ public class UIController
 
   public void moveNavBack()
   {
+	  Log.d("jack.chen","UIController.java moveNavBack() ");
     if (this.closedNav)
       restore();
   }
 
   public void restore()
   {
+	  Log.d("jack.chen","UIController.java restore()"); 
 	 label41:
 	 {
 	  if (this.isHidden)
@@ -302,21 +331,25 @@ public class UIController
 
   public void restoreFromSave()
   {
+	  Log.d("jack.chen","UIController.java restoreFromSave() ");
     setAll(this.wasNavShowing, this.wasPaintShowing, this.wasBrushShowing, this.wasVideoSrcShowing, this.washistoryShowing, this.wasOpenfileShowing);//  this.wasNewShowing);
   }
 
   public void restoreFromSave(boolean[] paramArrayOfBoolean)
   {
+	  Log.d("jack.chen","UIController.java restoreFromSave() "); 
     setAll(paramArrayOfBoolean[0], paramArrayOfBoolean[1], paramArrayOfBoolean[2], paramArrayOfBoolean[3], paramArrayOfBoolean[4], paramArrayOfBoolean[5]);
   }
 
   public void restoreTransparency()
   {
+	  Log.d("jack.chen","UIController.java restoreTransparency()"); 
     this.navWindowController.restoreTransperancy(false);
   }
 
   public boolean[] saveAllShowing()
   {
+	  Log.d("jack.chen","UIController.java saveAllShowing()"); 
     this.wasPaintShowing = this.paintViewController.isShowing;
     this.wasNavShowing = this.navWindowController.isShowing;
     this.wasBrushShowing = this.brushEditController.isShowing;
@@ -337,6 +370,8 @@ public class UIController
 
   public void setAll(boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, boolean paramBoolean6)
   {
+	  Log.d("jack.chen","UIController.java setAll() paramBoolean="+paramBoolean1+ " paramBoolean2="+paramBoolean2+
+			  " paramBoolean3="+paramBoolean3+" paramBoolean4="+paramBoolean4+" paramBoolean5="+paramBoolean5+" paramBoolean6="+paramBoolean6); 
     this.navWindowController.setShowing(paramBoolean1);
     this.paintViewController.setShowing(paramBoolean2);
     this.brushEditController.setShowing(paramBoolean3);
@@ -350,6 +385,7 @@ public class UIController
 
   public void showAll()
   {
+	  Log.d("jack.chen","UIController.java showAll()"); 
     if (this.isHidden)
     {
       this.isHidden = false;
@@ -364,6 +400,7 @@ public class UIController
 
   public void showPaint()
   {
+	  Log.d("jack.chen","UIController.java showPaint()"); 
     this.paintViewController.show();    
   }
 
@@ -374,26 +411,31 @@ public class UIController
 
   public boolean toggleBrushEditShowing()
   {
+	  Log.d("jack.chen","UIController.java toggleBrushEditShowing()"); 
     return this.brushEditController.toggle();
   }
   
   public boolean toggleOpenFileShowing()
   {
+	  Log.d("jack.chen","UIController.java toggleOpenFileShowing()"); 
     return this.openfileController.toggle();
   }
   
   public boolean toggleVideoSrcShowing()
   {
+	  Log.d("jack.chen","UIController.java toggleVideoSrcShowing()"); 
     return this.videosrcController.toggle();
   }
   
   public boolean toggleHistoryShowing()
   {
+	  Log.d("jack.chen","UIController.java toggleHistoryShowing()"); 
     return this.historyController.toggle();
   }   
   
   public boolean toggleSaveShowing()
   {
+	  Log.d("jack.chen","UIController.java toggleSaveShowing()"); 
 	  return false;
 	  //this.saveController.toggle();
   }
@@ -405,11 +447,13 @@ public class UIController
 
   public void toggleMinimize(PaintView paramPaintView)
   {
+	  Log.d("jack.chen","UIController.java toggleMinimize()"); 
     this.navWindowController.toggleMinimize(paramPaintView, this);
   }
 
   public boolean togglePaintWindow()
   {
+	  Log.d("jack.chen","UIController.java togglePaintWindow()"); 
     return this.paintViewController.toggle();
   }
 }

@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ public final class GlobalWindowManager
 
   public GlobalWindowManager(Context paramContext)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  GlobalWindowManager() ");  
     this.context = paramContext;
     this.previousLocations = new HashMap();
     this.windowsForFocus = new ArrayList(3);
@@ -46,13 +48,14 @@ public final class GlobalWindowManager
 
   private void getStatusBarHeight(Context paramContext)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  getStatusBarHeight() ");  
     this.statusBarHeight = (int)paramContext.getResources().getDimension(2131165188);
   }
 
   private void setFocusFlag(boolean paramBoolean, View paramView, WindowManager.LayoutParams paramLayoutParams)
   {
 	  
-	  
+	  Log.d("jack.chen","GlobalWindowManager.java  setFocusFlag() paramBoolean="+paramBoolean);
 	  //WindowManager.LayoutParams.FLAG_FULLSCREEN
     if (!paramBoolean)
       paramLayoutParams.flags = (WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE ^ paramLayoutParams.flags);
@@ -71,11 +74,13 @@ public final class GlobalWindowManager
 
   void addFocusWindow(BaseController paramBaseController)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  addFocusWindow() ");  
     this.windowsForFocus.add(paramBaseController);
   }
 
   void hideView(View paramView, WindowManager.LayoutParams paramLayoutParams)
   {
+	Log.d("jack.chen","GlobalWindowManager.java  hideView()");
     this.previousLocations.put(paramView, new Point(paramLayoutParams.x, paramLayoutParams.y));
     paramLayoutParams.width = 1;
     paramLayoutParams.height = 1;
@@ -85,7 +90,7 @@ public final class GlobalWindowManager
 
   void setFocus(boolean paramBoolean)
   {
-	  
+	  Log.d("jack.chen","GlobalWindowManager.java  setFocus() paramBoolean="+paramBoolean);
 	
     Iterator localIterator = this.windowsForFocus.iterator();
     while (true)
@@ -100,6 +105,7 @@ public final class GlobalWindowManager
 
   public void setFullScreenSize()
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  setFullScreenSize()");
     DisplayMetrics localDisplayMetrics = new DisplayMetrics();
     this.windowManager.getDefaultDisplay().getMetrics(localDisplayMetrics);
     this.fullScreenX = localDisplayMetrics.widthPixels;
@@ -113,6 +119,7 @@ public final class GlobalWindowManager
 
   WindowManager.LayoutParams setWindowLayoutParams(int paramInt1, int paramInt2, WindowManager.LayoutParams paramLayoutParams)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  setWindowLayoutParams() paramInt1="+paramInt1+" paramInt2="+paramInt2);
     if (paramLayoutParams == null)
     {
       if (paramInt1 == -1)
@@ -140,11 +147,13 @@ public final class GlobalWindowManager
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  1 showView()");
     showView(paramView, paramLayoutParams, this.fullScreenX, this.fullScreenY);
   }
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  2 showView()");
     Object localObject = this.previousLocations.get(paramView);
     int i = 0;
     int j = 0;
@@ -158,6 +167,7 @@ public final class GlobalWindowManager
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
+	  Log.d("jack.chen","GlobalWindowManager.java  3 showView() paramInt1="+paramInt1+" paramInt2="+paramInt2+" paramInt3="+paramInt3+" paramInt4="+paramInt4);
     paramLayoutParams.width = paramInt1;
     paramLayoutParams.height = paramInt2;
     paramLayoutParams.x = paramInt3;
