@@ -100,6 +100,7 @@ public class NavWindowController extends BaseController
 		@Override
 		public void onDoneMoving(int paramInt1, int paramInt2) {
 			// TODO Auto-generated method stub
+			Log.d("jack.chen","BaseController.java onDoneMoving()  x="+paramInt1+" y="+paramInt2);  
 			Settings.getInstance().setNavX(paramInt1);
 	        Settings.getInstance().setNavY(paramInt2);
 		}
@@ -110,6 +111,7 @@ public class NavWindowController extends BaseController
 
   private void resetView()
   {
+	  Log.d("jack.chen","BaseController.java resetView() w="+getWidth()+" h="+getHeight()+" x="+this.locX+" y="+this.locY);  
     this.base.showView(this.mainLayout, this.layoutParams, getWidth(), getHeight(), this.locX, this.locY);
   }
 
@@ -193,7 +195,9 @@ public class NavWindowController extends BaseController
 	};  
   
   
-
+/**
+ * jack.chen add set  Move event and ClickListener
+ */
   public void setMoveHandles()
   {
 	Log.d("jack.chen","NavWindowController.java setMoveHandles()");

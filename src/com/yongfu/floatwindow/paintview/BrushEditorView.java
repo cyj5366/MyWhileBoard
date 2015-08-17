@@ -60,7 +60,7 @@ public class BrushEditorView extends View
   private void init(Context paramContext)
   {
     this.paint = new Paint();
-    this.columnWidth = ((paramContext.getResources().getDimension(R.dimen.nav_total_width) - 35.0F) / 6.0F);
+    this.columnWidth = ((paramContext.getResources().getDimension(R.dimen.brush_settings_total_width) - 35.0F) / 6.0F);
     this.rowHeight = ((paramContext.getResources().getDimension(R.dimen.brush_settings_edit_height) - 15.0F) / 2F);
     this.Colors = ColorDefine.getColors(paramContext);
     this.onColorSelect = new ArrayList();

@@ -48,7 +48,7 @@ public final class GlobalWindowManager
 
   private void getStatusBarHeight(Context paramContext)
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  getStatusBarHeight() ");  
+	  Log.i("jack.chen","GlobalWindowManager.java  getStatusBarHeight() ");  
     this.statusBarHeight = (int)paramContext.getResources().getDimension(2131165188);
   }
 
@@ -105,7 +105,7 @@ public final class GlobalWindowManager
 
   public void setFullScreenSize()
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  setFullScreenSize()");
+	Log.i("jack.chen","GlobalWindowManager.java  setFullScreenSize()");
     DisplayMetrics localDisplayMetrics = new DisplayMetrics();
     this.windowManager.getDefaultDisplay().getMetrics(localDisplayMetrics);
     this.fullScreenX = localDisplayMetrics.widthPixels;
@@ -115,11 +115,14 @@ public final class GlobalWindowManager
     this.heightDP = (int)(this.fullScreenY / f);
     this.actuallFullScreenX = this.fullScreenX;
     this.actuallFullScreenY = (this.fullScreenY);// + this.statusBarHeight);
+    
+    Log.i("jack.chen","GlobalWindowManager.java  setFullScreenSize() f="+f+" widthDP="+widthDP+" heightDP="+heightDP+" actuallFullScreenX="+actuallFullScreenX+" actuallFullScreenY="+actuallFullScreenY);
   }
 
   WindowManager.LayoutParams setWindowLayoutParams(int paramInt1, int paramInt2, WindowManager.LayoutParams paramLayoutParams)
   {
 	  Log.d("jack.chen","GlobalWindowManager.java  setWindowLayoutParams() paramInt1="+paramInt1+" paramInt2="+paramInt2);
+	  Log.i("jack.chen","GlobalWindowManager.java setWindowLayoutParams() fullScreenX="+this.fullScreenX+" fullScreenY="+this.fullScreenY);
     if (paramLayoutParams == null)
     {
       if (paramInt1 == -1)
@@ -147,13 +150,13 @@ public final class GlobalWindowManager
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams)
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  1 showView()");
+	  Log.i("jack.chen","GlobalWindowManager.java  1 showView()");
     showView(paramView, paramLayoutParams, this.fullScreenX, this.fullScreenY);
   }
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2)
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  2 showView()");
+	  Log.i("jack.chen","GlobalWindowManager.java  2 showView()");
     Object localObject = this.previousLocations.get(paramView);
     int i = 0;
     int j = 0;
@@ -167,7 +170,7 @@ public final class GlobalWindowManager
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  3 showView() width="+paramInt1+" height="+paramInt2+" x="+paramInt3+" y="+paramInt4);
+	  Log.i("jack.chen","GlobalWindowManager.java  3 showView() width="+paramInt1+" height="+paramInt2+" x="+paramInt3+" y="+paramInt4);
     paramLayoutParams.width = paramInt1;
     paramLayoutParams.height = paramInt2;
     paramLayoutParams.x = paramInt3;

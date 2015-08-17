@@ -7,8 +7,8 @@
     <dimen name="top_bar_height_android_stock">25.0dip</dimen>
     <dimen name="nav_center_height">90.0dip</dimen>
     <dimen name="nav_center_width">90.0dip</dimen>    
-    <dimen name="nav_total_height">490.0dip</dimen>
-    <dimen name="nav_total_width">180.0dip</dimen>
+    <dimen name="nav_total_height">450.0dip</dimen>
+    <dimen name="nav_total_width">50.0dip</dimen>
     <dimen name="nav_min_width">55.0dip</dimen>
     <dimen name="brush_settings_title_height">35.0dip</dimen>
     <dimen name="brush_settings_width">110.0dip</dimen>

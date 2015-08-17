@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/navMoveHandle" 
     android:orientation="vertical"
-    android:layout_width="@dimen/side_button_width" 
+    android:layout_width="@dimen/nav_total_width" 
     android:layout_height="@dimen/nav_total_height"
-    android:layout_alignParentRight="true" 
+    android:layout_alignParentLeft="true" 
     android:layout_alignParentTop="true">
 <!--     <com.yongfu.floatwindow.circlemenu.CircleLayout
         android:id="@+id/main_circle_layout"

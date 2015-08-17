@@ -64,6 +64,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mstar.sourcec.control.InputSourceControl;
+import com.mstar.sourcec.control.InputSourceControl.MSTAR_INPUTSOURCE;
 import com.yongfu.floatwindow.R;
 import com.yongfu.floatwindow.penandpaper.ButtonGroup;
 import com.yongfu.floatwindow.penandpaper.Settings;
@@ -763,6 +765,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI1Button onClick()");
+				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI1);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -783,6 +786,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI2Button onClick()");
+				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI2);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -803,6 +807,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI3Button onClick()");
+				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI3);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -823,6 +828,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setVGAButton onClick()");
+				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_VGA);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
