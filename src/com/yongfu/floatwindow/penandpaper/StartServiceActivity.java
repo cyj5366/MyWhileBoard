@@ -83,6 +83,7 @@ public class StartServiceActivity extends Activity
 
   private void startApp()
   {
+	  Log.d(TAG, "startApp()"); 
     try
     {
       Log.d(TAG, "IntentCommands == "+IntentCommands.start.toString()); 

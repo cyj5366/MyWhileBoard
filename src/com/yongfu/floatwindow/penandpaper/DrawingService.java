@@ -46,7 +46,7 @@ import java.util.TimerTask;
 
 public class DrawingService extends Service
 {
-	private static final String TAG = "ScreenDraw_DrawService";
+	private static final String TAG = "DrawingService.java";
 	private boolean appToggled = true;
 	private ButtonWireing buttonWireing;
 	private GlobalWindowManager globalWindowManager;
@@ -80,6 +80,7 @@ public class DrawingService extends Service
 	private void hideNotifications()
 			throws ClassNotFoundException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException
 			{
+		Log.d("jack.chen","drawingservice.java hideNotifications() ");
 		try{  
 			Object localObject = getSystemService("statusbar");
 			Class.forName("android.app.StatusBarManager").getMethod("collapse", new Class[0]).invoke(localObject, new Object[0]);
@@ -90,6 +91,7 @@ public class DrawingService extends Service
 			}
 	private void onIntentCommandHelp()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandHelp() ");
 		if (this.uIController == null)
 		{
 			onIntentCommandStart();
@@ -155,12 +157,14 @@ public class DrawingService extends Service
 
 	private void onIntentCommandHide()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandHide() ");
 		if (this.uIController != null)
 			this.uIController.hideAll();
 	}
 
 	private void onIntentCommandNew()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandNew() ");
 		if (this.uIController == null)
 		{
 			onIntentCommandStart();
@@ -171,6 +175,7 @@ public class DrawingService extends Service
 
 	private void onIntentCommandStart()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandStart() ");
 		if (this.uIController == null)
 		{
 			this.globalWindowManager = new GlobalWindowManager(this);
@@ -180,11 +185,13 @@ public class DrawingService extends Service
 			this.uIController.getNavWindow().setMoveHandles();
 			return;
 		}
-		//this.uIController.restore();//jack.chen add 重新点击app图标显示圆盘ui
+		//StartTimer(5000);//jack.chen add 20150811
+		this.uIController.restore();//jack.chen add 重新点击app图标显示圆盘ui
 	}
 
 	private void onIntentCommandStop()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandStop() ");
 		if (this.uIController != null)
 		{
 			this.uIController.clear();
@@ -195,6 +202,7 @@ public class DrawingService extends Service
 
 	private void onIntentCommandToggle()
 	{
+		Log.d("jack.chen","drawingservice.java onIntentCommandToggle() ");
 		if (!(this.appToggled))
 		{
 			onIntentCommandStart();
@@ -211,6 +219,7 @@ public class DrawingService extends Service
 	}
 	private void setButtonListeners()
 	{
+		Log.d("jack.chen","drawingservice.java setButtonListeners() ");
 		this.buttonWireing = new ButtonWireing(this.uIController);
 		this.buttonWireing.setAllButtons(this.uIController.getNavWindow(), this.uIController.getBrushEditLayout(),    		
 				this.uIController.getPaintView(),
@@ -258,6 +267,7 @@ public class DrawingService extends Service
 
 	public void onConfigurationChanged(Configuration paramConfiguration)
 	{
+		Log.d("jack.chen","drawingservice.java onConfigurationChanged() ");
 		super.onConfigurationChanged(paramConfiguration);
 		//if (this.uIController != null)
 			//this.uIController.changeOrientation(this.globalWindowManager.windowManager.getDefaultDisplay().getRotation());
@@ -266,12 +276,12 @@ public class DrawingService extends Service
 
 	public void StartTimer(long t)
 	{
-
+		Log.d("jack.chen","drawingservice.java StartTimer() ");
 		timer = new Timer(true);
 
 		task = new TimerTask(){  
 			public void run() {  
-
+				Log.d("jack.chen","drawingservice.java TimerTask() ");
 				if (uIController != null)
 				{
 					if(uIController.getPaintStatus() == false 
@@ -283,10 +293,15 @@ public class DrawingService extends Service
 					{
 						if(touch_flag == false && close_flag ==false)
 						{
+							Log.d("jack.chen","drawingservice.java TimerTask() touch_SendMsg.sendEmptyMessage(0) invisible ");
 							touch_SendMsg.sendEmptyMessage(0);//invisible
 						}
 						touch_flag = false;
 					}
+				}
+				else
+				{
+					Log.d("jack.chen","drawingservice.java TimerTask() uIController == null");
 				}
 			}  
 		};  
@@ -320,10 +335,11 @@ public class DrawingService extends Service
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			//				Log.d(TAG, "Data onReceive!");
+			Log.d("jack.chen","drawingservice.java onReceive() action="+intent.getAction());
 			if(intent.getAction().equals(RECEIVE_ACTION)){
 				//					Log.d(TAG, "Data onReceive!");
 				RecType = intent.getIntExtra("type", 0);
-				//					Log.d(TAG, "RecType == " + RecType);
+				Log.d(TAG, "RecType == " + RecType);
 				int temp = intent.getIntExtra("temp", 0);					
 				Log.d(TAG, "temp == " + intent.getIntExtra("temp", 0));
 				switch(RecType){					
@@ -349,6 +365,7 @@ public class DrawingService extends Service
 				}
 			}			
 			if(intent.getAction().equals(HideCircle)){
+				
 				touch_SendMsg.sendEmptyMessage(0);
 			}
 			//				if(intent.getAction().equals(HideCircle)){
@@ -376,11 +393,13 @@ public class DrawingService extends Service
 
 	public void restoreBrushButton(View paramView, boolean paramBoolean)
 	{
+		Log.d("jack.chen","drawingservice.java restoreBrushButton() ");
 		setBackground(paramView, paramBoolean);
 	}
 
 	private void setBackground(View paramView, boolean paramBoolean)
 	{
+		Log.d("jack.chen","drawingservice.java setBackground() paramBoolean="+paramBoolean);
 		if (paramBoolean)
 		{
 			//	      paramView.setBackgroundColor(ColorDefine.SELECTED_COLOR_COLOR);
@@ -398,13 +417,14 @@ public class DrawingService extends Service
 
 	public int onStartCommand(Intent paramIntent, int paramInt1, int paramInt2)
 	{
+		Log.d("jack.chen","drawingservice.java onStartCommand() paramInt1="+paramInt1+" paramInt2="+paramInt2);
 		super.onStartCommand(paramIntent, paramInt1, paramInt2);
 		//onIntentCommandStart();
 
 		if ((paramIntent != null) && (paramIntent.getExtras() != null))
 		{
 			String str = paramIntent.getExtras().getString(IntentCommands.command.toString());
-			Log.d("ScreenDraw_DrawService","onStartCommand()="+ str);
+			Log.d(TAG,"onStartCommand()="+ str);
 			if (str != null)
 				switchCommand(IntentCommands.valueOf(str));
 		}
@@ -415,7 +435,7 @@ public class DrawingService extends Service
 		}
 		catch (Exception localException)
 		{
-			Log.e("ScreenDraw_DrawService", localException.getMessage(), localException);
+			Log.e(TAG, localException.getMessage(), localException);
 		}
 		return 1;
 	}
@@ -430,6 +450,7 @@ public class DrawingService extends Service
 			// return;
 			if (paramIntentCommands == IntentCommands.start)
 			{
+				
 				onIntentCommandStart();
 				return;
 			}

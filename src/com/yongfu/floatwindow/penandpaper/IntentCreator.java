@@ -3,6 +3,7 @@ package com.yongfu.floatwindow.penandpaper;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 public class IntentCreator
 {
@@ -32,6 +33,7 @@ public class IntentCreator
 
   public PendingIntent getPendingIntent(String paramString)
   {
+	  Log.d("jack.chen","getPendingIntent="+paramString);
     Context localContext = this.context;
     int i = intentsCreated;
     intentsCreated = i + 1;

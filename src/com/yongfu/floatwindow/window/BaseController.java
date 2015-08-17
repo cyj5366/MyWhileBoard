@@ -214,6 +214,7 @@ public abstract class BaseController
 		
 		private void onTouchMove(View v, MotionEvent paramMotionEvent)
 	      {
+			Log.d("jack.chen","NavWindowController.java onTouchMove() x="+paramMotionEvent.getRawX()+" y="+paramMotionEvent.getRawY());
 	        base.setFocus(true);
 	        if ((this.prevX > -1.0F) && (this.prevY > -1.0F) && (paramMotionEvent.getRawX() > 0F) && (paramMotionEvent.getRawY() > 0F))
 	        {
@@ -246,7 +247,7 @@ public abstract class BaseController
 
 	      private void onTouchUp(View v, MotionEvent paramMotionEvent)
 	      {
-	    	  
+	    	  Log.d("jack.chen","NavWindowController.java onTouchUp()");
 	    	  this.lastTimeClick = System.currentTimeMillis();
 	    	  //if ((Math.abs(this.deltaXt) < 10.0F) && (Math.abs(this.deltaYt) < 10.0F) && (System.currentTimeMillis() - this.lastTimeClick > 200L))
 	          //{
@@ -303,6 +304,7 @@ public abstract class BaseController
 		public boolean onTouch(View v, MotionEvent event) {
 			// TODO Auto-generated method stub
 			int action = event.getAction();
+			Log.d("jack.chen","NavWindowController.java onTouch() event="+event.toString());
 			if( (v.getId() == R.id.openFileButton 
 					|| v.getId() == R.id.saveFileButton) 
 					&& is_paint_pressed == false)

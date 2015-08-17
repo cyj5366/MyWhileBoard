@@ -186,6 +186,7 @@ public class NavWindowController extends BaseController
 
   public void setMoveHandles()
   {
+	  Log.d("jack.chen","NavWindowController.java setMoveHandles()");
     setMoveHandles(this.mainLayout.findViewById(R.id.mainButton), this.mainLayout, false, -1, this.paintClickListener);
     setMoveHandles(this.mainLayout.findViewById(R.id.editBrush), this.mainLayout, false, -1, this.brushClickListener);
     setMoveHandles(this.mainLayout.findViewById(R.id.info), this.mainLayout, true, -1, this.helpClickListener);
