@@ -736,8 +736,12 @@ public class ButtonWireing {
 
 			@Override
 			public void onClick(View v) {
-				SendMsgToService(11, 11);
+				Log.d("jack.chen","ButtonWireing.java helpClickListener onClick  to HOME");
+				//SendMsgToService(11, 11); jack.chen del
 				// TODO Auto-generated method stub
+				
+				InputSourceControl.getInstance().changeInputSource(v.getContext(),MSTAR_INPUTSOURCE.E_INPUT_SOURCE_STORAGE);
+				
 				Intent intent = new Intent(Intent.ACTION_MAIN);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				// 如果是服务里调用，必须加入new task标识
@@ -765,7 +769,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI1Button onClick()");
-				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI1);
+				InputSourceControl.getInstance().changeInputSource(v.getContext(),MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI1);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -786,7 +790,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI2Button onClick()");
-				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI2);
+				InputSourceControl.getInstance().changeInputSource(v.getContext(),MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI2);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -807,7 +811,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setHDMI3Button onClick()");
-				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI3);
+				InputSourceControl.getInstance().changeInputSource(v.getContext(),MSTAR_INPUTSOURCE.E_INPUT_SOURCE_HDMI3);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -828,7 +832,7 @@ public class ButtonWireing {
 				// TODO Auto-generated method stub
 
 				Log.i("jack.chen","ButtonWireing.java setVGAButton onClick()");
-				InputSourceControl.getInstance().changeInputSource(MSTAR_INPUTSOURCE.E_INPUT_SOURCE_VGA);
+				InputSourceControl.getInstance().changeInputSource(v.getContext(),MSTAR_INPUTSOURCE.E_INPUT_SOURCE_VGA);
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}

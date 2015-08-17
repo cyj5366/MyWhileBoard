@@ -141,7 +141,7 @@ public class DrawingService extends Service
 						((com.yongfu.floatwindow.circlemenu.CircleImageView)uIController.getMainLayout().findViewById(R.id.mainButton)).setImageResource(R.drawable.edit_unsel);
 						uIController.ShowNavWindow();
 						Log.i("pizhu", "touch_SendMsg 1  ShowNavWindow  StartTimer(50000);");
-						StartTimer(50000);
+						//StartTimer(50000); jack.chen del
 						close_flag = false;
 					}
 					break;
@@ -323,12 +323,13 @@ public class DrawingService extends Service
 		mFilter.addAction(RECEIVE_ACTION);	
 		mFilter.addAction(ANNOTATE_ACTION);	
 		mFilter.addAction(HideCircle);
+		mFilter.addAction(ShowCircle);
 		registerReceiver(DataReceiverBroadcastReceiver, mFilter);
 		//NotificationCreator localNotificationCreator = new NotificationCreator(getApplicationContext());
 		//startForeground(localNotificationCreator.getID(), localNotificationCreator.getNotification());
 		data = (GlobalData)this.getApplication();
 		Log.i("jack.chen", "DrawingService.java onCreate StartTimer(5000);");
-		StartTimer(5000);
+		//StartTimer(5000);jack.chen del
 	}
 
 	private BroadcastReceiver DataReceiverBroadcastReceiver = new BroadcastReceiver() {
@@ -365,7 +366,12 @@ public class DrawingService extends Service
 				else{
 					SendMsgToService(11,11);//退出PC发android
 				}
-			}			
+			}		
+			if(intent.getAction().equals(ShowCircle))//jack.chen 20150814 add to show UI
+			{
+				Log.d("jack.chen","drawingservice.java UI show");
+				onIntentCommandStart();
+			}
 			if(intent.getAction().equals(HideCircle)){
 				Log.d("jack.chen","drawingservice.java onReceive() touch_SendMsg.sendEmptyMessage(0)");
 				touch_SendMsg.sendEmptyMessage(0);
