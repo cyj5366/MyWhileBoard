@@ -4,6 +4,10 @@
     <string name="app_name">Draw Over Apps</string>
     <string name="title_activity_draw_surface">Draw Over Apps</string>
     <string name="button_hide">Hide</string>
+    <string name="button_HDMI1">HDMI1</string>
+    <string name="button_HDMI2">HDMI2</string>
+    <string name="button_HDMI3">HDMI3</string>
+    <string name="button_VGA">VGA</string>
     <string name="button_open">Open</string>
     <string name="button_save">Save</string>
     <string name="button_show">Show</string>

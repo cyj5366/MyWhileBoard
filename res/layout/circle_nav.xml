@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:circle="http://schemas.android.com/apk/res/com.yongfu.floatwindow"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/navMoveHandle" 
-    android:layout_width="@dimen/nav_total_width" 
+    android:orientation="vertical"
+    android:layout_width="@dimen/side_button_width" 
     android:layout_height="@dimen/nav_total_height"
     android:layout_alignParentRight="true" 
-    android:layout_alignParentBottom="true">
-    <com.yongfu.floatwindow.circlemenu.CircleLayout
+    android:layout_alignParentTop="true">
+<!--     <com.yongfu.floatwindow.circlemenu.CircleLayout
         android:id="@+id/main_circle_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/main_selected_textView"
         android:layout_gravity="center_horizontal"
+>       
+       
         circle:firstChildPosition="North" 
         circle:rotateToCenter="true" 
-        circle:isRotating="true">       
-<!--         circle:circleBackground="@drawable/green"  > -->
-
+        circle:isRotating="true"
+         circle:circleBackground="@drawable/green"  > -->
+        <ImageView
+            android:id="@+id/HDMI1Button"         
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/hdmi1"
+            android:text="@string/button_center" 
+            /> 
+      <ImageView
+            android:id="@+id/HDMI2Button"         
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/hdmi2"
+            android:text="@string/button_center" 
+            /> 
+       <ImageView
+            android:id="@+id/HDMI3Button"         
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/hdmi3"
+            android:text="@string/button_center" 
+            /> 
+        <ImageView
+            android:id="@+id/VGAButton"         
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/vga"
+            android:text="@string/button_center" 
+            /> 
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:textSize="@dimen/text_size" 
         	android:textColor="#ffffffff" 
@@ -27,86 +57,89 @@
         	android:layout_height="@dimen/side_button_height" 
         	android:text="@string/button_paint" 
         	android:drawableTop="@android:drawable/ic_menu_edit" 
-        	android:layout_alignParentRight="true" 
-        	android:layout_alignParentBottom="true" />   
+			 />   
 
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:id="@+id/editBrush"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/set2_new"
             circle:name="@string/button_brush" />
         
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:id="@+id/videoSrcButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/screenshot_new"
-            circle:name="@string/cont_desc_drag_handle" />         
-
-        <com.yongfu.floatwindow.circlemenu.CircleImageView
-            android:id="@+id/BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back_new"
-            circle:name="@string/cont_desc_drag_handle" />                 
-
-        <com.yongfu.floatwindow.circlemenu.CircleImageView
-            android:id="@+id/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/main_new"
-            circle:name="@string/button_help" />
+            circle:name="@string/cont_desc_drag_handle" 
+            />         
 
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:id="@+id/historyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/history_new"
-            circle:name="@string/button_hide" />
+            circle:name="@string/button_hide" 
+            android:visibility="gone"
+            />
 
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:id="@+id/openFileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/open_new"
-            circle:name="@string/button_open" />
+            circle:name="@string/button_open" 
+            android:visibility="gone"
+            />
         
         
         <com.yongfu.floatwindow.circlemenu.CircleImageView
             android:id="@+id/saveFileButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/save_new"
-            circle:name="@string/button_save" />        
+            circle:name="@string/button_save" 
+            android:visibility="gone"
+            />      
+       <com.yongfu.floatwindow.circlemenu.CircleImageView
+            android:id="@+id/info"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/main_new"
+            circle:name="@string/button_help" />  
+       <com.yongfu.floatwindow.circlemenu.CircleImageView
+            android:id="@+id/BackButton"
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
+            android:src="@drawable/back_new"
+            circle:name="@string/cont_desc_drag_handle" 
+            android:visibility="gone"/>   
         
-        
-    </com.yongfu.floatwindow.circlemenu.CircleLayout>    
-        
+ <!--    </com.yongfu.floatwindow.circlemenu.CircleLayout>     -->
+
         <ImageView
-            android:id="@+id/center"
-            android:layout_centerInParent="true"          
-            android:layout_width="@dimen/nav_center_width"
-            android:layout_height="@dimen/nav_center_height"
+            android:id="@+id/center"         
+            android:layout_width="@dimen/side_button_width"
+            android:layout_height="@dimen/side_button_height"
             android:src="@drawable/center_new"
-            android:text="@string/button_center" />         
+            android:text="@string/button_center" 
+            android:visibility="gone"/>         
         
             
         <ImageView
-            android:id="@+id/centerButton"
-            android:layout_centerInParent="true"          
+            android:id="@+id/centerButton"         
             android:layout_width="@dimen/side_button_width"
             android:layout_height="@dimen/side_button_height"
-            android:src="@drawable/temp_new"
-            android:text="@string/button_center" /> 
+            android:src="@drawable/center_new"
+            android:text="@string/button_center" 
+            /> 
             
         
                         
         <TextView
             android:id="@+id/temp"
-            android:layout_centerInParent="true"          
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textColor="@android:color/black" />                 
-</RelativeLayout>
+</LinearLayout>

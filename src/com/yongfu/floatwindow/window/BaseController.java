@@ -179,7 +179,7 @@ public abstract class BaseController
     }
   }
 	public void SendMsgToService(int state, int io) {
-		Log.d("jack.chen","basecontorller.java SendMsgToService state="+state+" io="+io);
+		Log.d("jack.chen","BaseController.java SendMsgToService state="+state+" io="+io);
 //		m_IGpioControl = IGpioControl.Stub.asInterface(ServiceManager.getService("gpio"));
 //		try
 //		{
@@ -214,7 +214,7 @@ public abstract class BaseController
 		
 		private void onTouchMove(View v, MotionEvent paramMotionEvent)
 	      {
-			Log.d("jack.chen","NavWindowController.java onTouchMove() x="+paramMotionEvent.getRawX()+" y="+paramMotionEvent.getRawY());
+			Log.d("jack.chen","BaseController.java onTouchMove() x="+paramMotionEvent.getRawX()+" y="+paramMotionEvent.getRawY());
 	        base.setFocus(true);
 	        if ((this.prevX > -1.0F) && (this.prevY > -1.0F) && (paramMotionEvent.getRawX() > 0F) && (paramMotionEvent.getRawY() > 0F))
 	        {
@@ -247,7 +247,7 @@ public abstract class BaseController
 
 	      private void onTouchUp(View v, MotionEvent paramMotionEvent)
 	      {
-	    	  Log.d("jack.chen","NavWindowController.java onTouchUp()");
+	    	  Log.d("jack.chen","BaseController.java onTouchUp()");
 	    	  this.lastTimeClick = System.currentTimeMillis();
 	    	  //if ((Math.abs(this.deltaXt) < 10.0F) && (Math.abs(this.deltaYt) < 10.0F) && (System.currentTimeMillis() - this.lastTimeClick > 200L))
 	          //{
@@ -304,14 +304,15 @@ public abstract class BaseController
 		public boolean onTouch(View v, MotionEvent event) {
 			// TODO Auto-generated method stub
 			int action = event.getAction();
-			Log.d("jack.chen","NavWindowController.java onTouch() event="+event.toString());
+			Log.d("jack.chen","BaseController.java onTouch() event="+event.toString());
 			if( (v.getId() == R.id.openFileButton 
 					|| v.getId() == R.id.saveFileButton) 
 					&& is_paint_pressed == false)
 			{
 				return false;
 			}
-			BaseController.this.sendTouchIntent();
+			Log.d("jack.chen","BaseController.java onTouch() sendTouchIntent()");
+			BaseController.this.sendTouchIntent();//发送 touch事件显示UI
 			switch(action)
 			{
 			case MotionEvent.ACTION_MOVE:
@@ -365,6 +366,7 @@ public abstract class BaseController
 
   protected void setMoveHandles2(View paramView1, final View paramView2, boolean paramBoolean, int paramInt, View.OnClickListener paramOnClickListener)
   {
+	  Log.d("jack.chen","BaseController.java  setMoveHandles2()");
     if (paramView1 == null)
       return;
     paramView1.setClickable(true);    
@@ -377,6 +379,7 @@ public abstract class BaseController
         private float prevY = -1.0F;		
 		private void onTouchMove(View v, MotionEvent paramMotionEvent)
 	      {
+			 Log.d("jack.chen","BaseController.java  2 onTouchMove() paramMotionEvent="+paramMotionEvent);
 	        base.setFocus(true);
 	        if ((this.prevX > -1.0F) && (this.prevY > -1.0F) && (paramMotionEvent.getRawX() > 0F) && (paramMotionEvent.getRawY() > 0F))
 	        {
@@ -394,7 +397,8 @@ public abstract class BaseController
 	            fixLayoutParams(layoutParams, getWidth(), getHeight());
 	            locX = layoutParams.x;
 	            locY = layoutParams.y;
-	            base.windowManager.updateViewLayout(mainview, layoutParams);
+	            Log.d("jack.chen","BaseController.java onTouchMove() 更新UI位置   bmove = true");
+	            base.windowManager.updateViewLayout(mainview, layoutParams);//更新UI位置
 				setButtonEnable(false);
 	          }
 	          else{
@@ -410,6 +414,7 @@ public abstract class BaseController
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			// TODO Auto-generated method stub
+			Log.d("jack.chen","BaseController.java  2 onTouch()="+event.toString());
 			int action = event.getAction();
 
 			switch(action)
@@ -439,7 +444,7 @@ public abstract class BaseController
 //	        	  {
 				if(!bmove){					
 					if(!bopen){		
-
+						Log.d("jack.chen","BaseController.java  2 onTouch() !bopen ="+bopen);
 	     		        Intent HideCircle = new Intent(ShowOrHideCircle);
 //						Bundle bundle = new Bundle();
 //						bundle.putInt("status", 1);
@@ -447,6 +452,7 @@ public abstract class BaseController
 						v.getContext().sendBroadcast(HideCircle);
 						}
 					else{
+						Log.d("jack.chen","BaseController.java  2 onTouch() bopen ="+bopen);
 	     		        Intent HideCircle = new Intent(ShowOrHideCircle);
 //						Bundle bundle = new Bundle();
 //						bundle.putInt("status", 2);
@@ -456,6 +462,7 @@ public abstract class BaseController
 					bopen = !bopen;					
 	        	  }
 				else{
+					Log.d("jack.chen","BaseController.java  2 onTouch() setButtonEnable(true)");
 					setButtonEnable(true);
 				}
 				  base.setFocus(false);

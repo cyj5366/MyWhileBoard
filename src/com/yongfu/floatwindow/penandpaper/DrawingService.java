@@ -140,8 +140,8 @@ public class DrawingService extends Service
 							SendMsgToService(11,11);//发android 
 						((com.yongfu.floatwindow.circlemenu.CircleImageView)uIController.getMainLayout().findViewById(R.id.mainButton)).setImageResource(R.drawable.edit_unsel);
 						uIController.ShowNavWindow();
-						Log.i("pizhu", "ShowNavWindow");
-						StartTimer(20000);
+						Log.i("pizhu", "touch_SendMsg 1  ShowNavWindow  StartTimer(50000);");
+						StartTimer(50000);
 						close_flag = false;
 					}
 					break;
@@ -209,6 +209,7 @@ public class DrawingService extends Service
 			this.appToggled = true;
 			return;
 		}
+		Log.d("jack.chen","drawingservice.java onIntentCommandToggle() ->onIntentCommandHide()隐藏hideAll");
 		onIntentCommandHide();
 		this.appToggled = false;
 	}
@@ -326,6 +327,7 @@ public class DrawingService extends Service
 		//NotificationCreator localNotificationCreator = new NotificationCreator(getApplicationContext());
 		//startForeground(localNotificationCreator.getID(), localNotificationCreator.getNotification());
 		data = (GlobalData)this.getApplication();
+		Log.i("jack.chen", "DrawingService.java onCreate StartTimer(5000);");
 		StartTimer(5000);
 	}
 
@@ -365,7 +367,7 @@ public class DrawingService extends Service
 				}
 			}			
 			if(intent.getAction().equals(HideCircle)){
-				
+				Log.d("jack.chen","drawingservice.java onReceive() touch_SendMsg.sendEmptyMessage(0)");
 				touch_SendMsg.sendEmptyMessage(0);
 			}
 			//				if(intent.getAction().equals(HideCircle)){
@@ -474,7 +476,11 @@ public class DrawingService extends Service
 				//StartTimer();
 				if(close_flag)
 				{
+					Log.d("jack.chen","DrawingService.java +switchCommand() touch_SendMsg.sendEmptyMessage(1)");
 					touch_SendMsg.sendEmptyMessage(1);//visible
+				}
+				else{
+					Log.d("jack.chen","DrawingService.java close_flag="+close_flag);
 				}
 				return;
 			}

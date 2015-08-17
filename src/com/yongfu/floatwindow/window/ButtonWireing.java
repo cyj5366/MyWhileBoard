@@ -369,6 +369,7 @@ public class ButtonWireing {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// lave add in 12-18
+				Log.d("jack.chen","ButtonWireing.java brushClickListener onClick()");
 				reseatWindow(2);
 				boolean bool = window.toggleBrushEditShowing();
 				isBrushShowing = true;
@@ -638,6 +639,7 @@ public class ButtonWireing {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				Log.i("jack.chen","ButtonWireing.java videoClickListener onClick()  相机");
 				// lave add in 12-18
 				// reseatWindow(1);
 				// window.toggleVideoSrcShowing();
@@ -741,6 +743,86 @@ public class ButtonWireing {
 				v.getContext().startActivity(intent);
 				//uNavWindowController.base.setFocus(false);
 				
+				window.getNavWindow().restoreTransperancy(false);
+				window.getNavWindow().setFocu_un();
+			}
+		};
+
+	}
+	/**
+	 * jack.chen add
+	 */
+	private void setHDMI1Button(NavWindowController paramNavWindowController) {
+
+		//final NavWindowController uNavWindowController = paramNavWindowController;
+		paramNavWindowController.HDMI1ClickListener = new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				//SendMsgToService(11, 11); ?
+				// TODO Auto-generated method stub
+
+				Log.i("jack.chen","ButtonWireing.java setHDMI1Button onClick()");
+				window.getNavWindow().restoreTransperancy(false);
+				window.getNavWindow().setFocu_un();
+			}
+		};
+
+	}
+	/**
+	 * jack.chen add
+	 */
+	private void setHDMI2Button(NavWindowController paramNavWindowController) {
+
+		//final NavWindowController uNavWindowController = paramNavWindowController;
+		paramNavWindowController.HDMI2ClickListener = new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				//SendMsgToService(11, 11); ?
+				// TODO Auto-generated method stub
+
+				Log.i("jack.chen","ButtonWireing.java setHDMI2Button onClick()");
+				window.getNavWindow().restoreTransperancy(false);
+				window.getNavWindow().setFocu_un();
+			}
+		};
+
+	}
+	/**
+	 * jack.chen add
+	 */
+	private void setHDMI3Button(NavWindowController paramNavWindowController) {
+
+		//final NavWindowController uNavWindowController = paramNavWindowController;
+		paramNavWindowController.HDMI3ClickListener = new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				//SendMsgToService(11, 11); ?
+				// TODO Auto-generated method stub
+
+				Log.i("jack.chen","ButtonWireing.java setHDMI3Button onClick()");
+				window.getNavWindow().restoreTransperancy(false);
+				window.getNavWindow().setFocu_un();
+			}
+		};
+
+	}
+	/**
+	 * jack.chen add
+	 */
+	private void setVGAButton(NavWindowController paramNavWindowController) {
+
+		//final NavWindowController uNavWindowController = paramNavWindowController;
+		paramNavWindowController.VGAClickListener = new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				//SendMsgToService(11, 11); ?
+				// TODO Auto-generated method stub
+
+				Log.i("jack.chen","ButtonWireing.java setVGAButton onClick()");
 				window.getNavWindow().restoreTransperancy(false);
 				window.getNavWindow().setFocu_un();
 			}
@@ -894,6 +976,13 @@ public class ButtonWireing {
 		setSaveButton(paramNavWindowController, saveview, paramPaintView);
 		setCenterButton(paramNavWindowController);
 		setHistoryButton(paramNavWindowController, historyview, paramView);
+		
+		setHDMI1Button(paramNavWindowController);//jack.chen add 20150812n
+		setHDMI2Button(paramNavWindowController);//jack.chen add 20150812n
+		setHDMI3Button(paramNavWindowController);//jack.chen add 20150812n
+		setVGAButton(paramNavWindowController);//jack.chen add 20150812n
+		
+		
 	}
 
 	// lave add in 12-18

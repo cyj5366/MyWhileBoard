@@ -26,6 +26,12 @@ import com.yongfu.floatwindow.paintview.PaintView;
 
 public class NavWindowController extends BaseController
 {
+	public View.OnClickListener HDMI1ClickListener;  //jack.chen add 20150812n
+	public View.OnClickListener HDMI2ClickListener;
+	public View.OnClickListener HDMI3ClickListener;
+	public View.OnClickListener VGAClickListener;
+	
+	
   public View.OnClickListener brushClickListener;
   public View.OnClickListener helpClickListener;
   public View.OnClickListener backClickListener;  
@@ -53,7 +59,9 @@ public class NavWindowController extends BaseController
   private static final String HideCircle = "com.labwe.HideCircle";
   public NavWindowController(GlobalWindowManager paramGlobalWindowManager)
   {
+	  
     super(paramGlobalWindowManager, R.dimen.nav_total_width, R.dimen.nav_total_height);
+    Log.d("jack.chen","NavWindowController.java NavWindowController()");
     this.hideText = paramGlobalWindowManager.context.getResources().getString(R.string.button_hide);
     this.showText = paramGlobalWindowManager.context.getResources().getString(R.string.button_show);
     this.isShowing = true;
@@ -72,11 +80,12 @@ public class NavWindowController extends BaseController
   
   private void createMainControlls()
   {
+	  Log.d("jack.chen","NavWindowController.java createMainControlls()");
     this.mainLayout = new FrameLayout(this.base.context);
     this.mainLayout.setBackgroundColor(0);
     this.base.layoutInflater.inflate(R.layout.circle_nav, this.mainLayout);
     this.layoutParams = this.base.setWindowLayoutParams(getWidth(), getHeight(), this.layoutParams);
-	level3 = (com.yongfu.floatwindow.circlemenu.CircleLayout)this.mainLayout.findViewById(R.id.main_circle_layout);
+//	level3 = (com.yongfu.floatwindow.circlemenu.CircleLayout)this.mainLayout.findViewById(R.id.main_circle_layout);
 
     
     
@@ -163,6 +172,7 @@ public class NavWindowController extends BaseController
 //				Log.d(TAG, "Data onReceive!");
 			
 				if(intent.getAction().equals(ShowOrHideCircle)){
+					Log.d("jack.chen","BaseController.java onreceive ShowOrHideCircle to Intent(HideCircle)");
 //					int status = intent.getIntExtra("status", 0);
 //					Log.d(TAG, "status == " + status);
 //					if(status == 1){
@@ -186,7 +196,12 @@ public class NavWindowController extends BaseController
 
   public void setMoveHandles()
   {
-	  Log.d("jack.chen","NavWindowController.java setMoveHandles()");
+	Log.d("jack.chen","NavWindowController.java setMoveHandles()");
+	setMoveHandles(this.mainLayout.findViewById(R.id.HDMI1Button), this.mainLayout, true, -1, this.HDMI1ClickListener);//jack.chen add 20150812n
+	setMoveHandles(this.mainLayout.findViewById(R.id.HDMI2Button), this.mainLayout, true, -1, this.HDMI2ClickListener);
+	setMoveHandles(this.mainLayout.findViewById(R.id.HDMI3Button), this.mainLayout, true, -1, this.HDMI3ClickListener);
+	setMoveHandles(this.mainLayout.findViewById(R.id.VGAButton), this.mainLayout, true, -1, this.VGAClickListener);
+	
     setMoveHandles(this.mainLayout.findViewById(R.id.mainButton), this.mainLayout, false, -1, this.paintClickListener);
     setMoveHandles(this.mainLayout.findViewById(R.id.editBrush), this.mainLayout, false, -1, this.brushClickListener);
     setMoveHandles(this.mainLayout.findViewById(R.id.info), this.mainLayout, true, -1, this.helpClickListener);

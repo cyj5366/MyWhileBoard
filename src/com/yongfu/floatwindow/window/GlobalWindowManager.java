@@ -167,7 +167,7 @@ public final class GlobalWindowManager
 
   void showView(View paramView, WindowManager.LayoutParams paramLayoutParams, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-	  Log.d("jack.chen","GlobalWindowManager.java  3 showView() paramInt1="+paramInt1+" paramInt2="+paramInt2+" paramInt3="+paramInt3+" paramInt4="+paramInt4);
+	  Log.d("jack.chen","GlobalWindowManager.java  3 showView() width="+paramInt1+" height="+paramInt2+" x="+paramInt3+" y="+paramInt4);
     paramLayoutParams.width = paramInt1;
     paramLayoutParams.height = paramInt2;
     paramLayoutParams.x = paramInt3;
