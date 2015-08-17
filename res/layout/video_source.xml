@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background" 
+    android:layout_width="@dimen/brush_settings_total_width" 
+    android:layout_height="@dimen/video_src_height"
+    android:orientation="vertical">
+    <ImageView android:id="@id/VideoSrcCloseButton" 
+        android:layout_width="wrap_content" 
+        android:layout_height="35dip"
+        android:src="@android:drawable/ic_menu_close_clear_cancel" 
+        android:layout_alignParentTop="true" 
+        android:layout_alignParentRight="true" 
+        android:contentDescription="@string/cont_desc_close_help" />
+    
+  <ScrollView 
+    android:id="@id/ScrollView1"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"    
+    android:layout_below="@id/VideoSrcCloseButton">
+  <LinearLayout 
+      android:id="@+id/viewgrouplayout" 
+      android:layout_width="wrap_content" 
+      android:layout_height="wrap_content"
+      android:orientation="vertical" /> 
+  </ScrollView>
+
+</RelativeLayout>

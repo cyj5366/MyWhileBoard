@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="highlighter_yellow">#66ffff00</color>
+    <color name="highlighter_green">#669acc00</color>
+    <color name="highlighter_orange">#66ffbb32</color>
+    <color name="highlighter_red">#66ae231c</color>
+    <color name="highlighter_blue">#6646a4db</color>
+    <color name="highlighter_purple">#ffffffff</color>
+    <color name="red">#ffae231c</color>
+    <color name="blue">#ff46a4db</color>
+    <color name="green">#ff9acc00</color>
+    <color name="orange">#ffffbb32</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="purple">#ff000000</color>
+    <color name="background">#bb000000</color>
+    <color name="textColor">#ffaaaaaa</color>
+</resources>

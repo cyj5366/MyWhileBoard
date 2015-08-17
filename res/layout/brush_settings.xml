@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    android:id="@id/brushSettingsRoot" 
+    android:background="@color/background" 
+    android:layout_width="@dimen/brush_settings_total_width" 
+    android:layout_height="@dimen/display_show_height"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/colorDesc" 
+        android:layout_width="fill_parent" 
+        android:layout_height="@dimen/brush_settings_title_height" 
+        android:text="@string/desc_colors" 
+        android:layout_alignParentLeft="true" 
+        android:layout_alignParentTop="true" />
+    <ImageView android:id="@id/brushEditCloseButton" 
+        android:layout_width="wrap_content" 
+        android:layout_height="@dimen/brush_settings_title_height" 
+        android:src="@android:drawable/ic_menu_close_clear_cancel" 
+        android:layout_alignParentTop="true" 
+        android:layout_alignParentRight="true" 
+        android:contentDescription="@string/cont_desc_close_help" />
+    <RelativeLayout 
+        android:id="@id/brushEditor" 
+        android:layout_width="@dimen/nav_total_width" 
+        android:layout_height="@dimen/brush_settings_edit_brush_height" 
+        android:layout_marginTop="18dip"
+        android:layout_alignParentLeft="true">
+        <com.yongfu.floatwindow.paintview.BrushEditorView 
+            android:id="@id/colorSelect" 
+            android:layout_width="@dimen/nav_total_width" 
+            android:layout_height="@dimen/brush_settings_edit_brush_height" 
+            android:layout_alignParentLeft="true" 
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <TextView 
+        android:id="@id/sizeDesc" 
+        android:layout_marginTop="85dip"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="@string/desc_brush_size" 
+        android:layout_alignParentLeft="true" />
+    <SeekBar
+         android:id="@id/brushSize" 
+         android:layout_width="fill_parent" 
+         android:layout_height="wrap_content" 
+         android:max="40" 
+         android:progress="16" 
+         android:layout_below="@id/sizeDesc" 
+         android:layout_alignParentLeft="true" />
+    <TextView 
+        android:id="@id/brushStyle" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="@string/desc_brush_style" 
+        android:layout_marginTop="130dip" 
+        android:layout_alignParentLeft="true" />
+    <ImageView 
+        android:id="@id/eraser" 
+        android:layout_width="@dimen/brush_settings_width" 
+        android:layout_height="@dimen/brush_settings_height" 
+        android:src="@drawable/eraser" 
+        android:scaleType="fitCenter" 
+        android:layout_below="@id/brushStyle" 
+        android:layout_alignParentLeft="true" 
+        android:contentDescription="@string/cont_desc_eraser" />
+    <ImageView 
+        android:id="@id/pen" 
+        android:layout_width="@dimen/brush_settings_width" 
+        android:layout_height="@dimen/brush_settings_height" 
+        android:src="@drawable/pen_shape" 
+        android:scaleType="fitCenter" 
+        android:layout_below="@id/eraser" 
+        android:layout_alignParentLeft="true" 
+        android:contentDescription="@string/cont_desc_hard" />
+    <ImageView 
+        android:id="@id/brush" 
+        android:layout_width="@dimen/brush_settings_width" 
+        android:layout_height="@dimen/brush_settings_height" 
+        android:src="@drawable/brush_shape" 
+        android:scaleType="fitCenter" 
+        android:layout_toRightOf="@id/pen" 
+        android:layout_below="@id/brushStyle" 
+        android:contentDescription="@string/cont_desc_med_hard" />
+    <ImageView 
+        android:id="@id/airBrush" 
+        android:layout_width="@dimen/brush_settings_width" 
+        android:layout_height="@dimen/brush_settings_height" 
+        android:src="@drawable/soft_shape" 
+        android:scaleType="fitCenter" 
+        android:layout_alignLeft="@id/brush" 
+        android:layout_alignTop="@id/pen" 
+        android:contentDescription="@string/cont_desc_soft" />
+
+    <Button
+        android:id="@id/eraseAll"
+        android:layout_width="80dip"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/pen"
+        android:background="@color/background"
+        android:text="@string/desc_brush_erase_all"
+        android:textColor="@color/textColor" />
+
+</RelativeLayout>

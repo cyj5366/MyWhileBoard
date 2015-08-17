@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <WebView android:id="@id/helpWebView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/helpCloseButton" android:layout_alignParentLeft="true" />
+    <ImageView android:id="@id/helpCloseButton" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:src="@android:drawable/ic_menu_close_clear_cancel" 
+        android:layout_alignParentTop="true" 
+        android:layout_alignParentRight="true" 
+        android:contentDescription="@string/cont_desc_close_help" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textStyle="bold" android:textColor="@color/textColor" android:id="@id/webTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/help_title" android:layout_toLeftOf="@id/helpCloseButton" android:layout_above="@id/helpWebView" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+</RelativeLayout>

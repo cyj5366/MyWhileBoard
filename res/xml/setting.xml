@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory
+		android:key="common_settings" android:title="设置">
+		<CheckBoxPreference android:defaultValue="false"
+			android:key="auto_start" android:title="开机自启动" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="操作设置"
+		android:key="control_setting">
+		<ListPreference
+	        android:key="on_click"
+	        android:title="点击"
+	        android:summary="选择点击的操作"
+	        android:entries="@array/entries_list_preference"
+	        android:entryValues="@array/entriesvalue_list_preference"
+	        android:defaultValue="1"/>
+	    <ListPreference
+	        android:key="on_up_down"
+	        android:title="垂直划动"
+	        android:summary="选择垂直方向划动的操作"
+	        android:entries="@array/entries_list_preference"
+	        android:entryValues="@array/entriesvalue_list_preference"
+	        android:defaultValue="2"/>
+	    <ListPreference
+	        android:key="on_left_right"
+	        android:title="水平滑动"
+	        android:summary="选择水平方向划动的操作"
+	        android:entries="@array/entries_list_preference"
+	        android:entryValues="@array/entriesvalue_list_preference"
+	        android:defaultValue="3"/>
+	</PreferenceCategory>
+</PreferenceScreen>

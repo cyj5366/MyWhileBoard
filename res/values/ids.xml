@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="brushSettingsRoot">false</item>
+    <item type="id" name="colorDesc">false</item>
+    <item type="id" name="brushEditCloseButton">false</item>
+    <item type="id" name="brushEditor">false</item>
+    <item type="id" name="colorSelect">false</item>
+    <item type="id" name="sizeDesc">false</item>
+    <item type="id" name="brushSize">false</item>
+    <item type="id" name="brushStyle">false</item>
+    <item type="id" name="eraser">false</item>
+    <item type="id" name="pen">false</item>
+    <item type="id" name="brush">false</item>
+    <item type="id" name="airBrush">false</item>
+    <item type="id" name="perAppDrawing">false</item>
+    <item type="id" name="eraseAll">false</item>
+    <item type="id" name="navMoveHandle">false</item>
+    <item type="id" name="mainButton">false</item>
+    <item type="id" name="editBrush">false</item>
+    <item type="id" name="info">false</item>
+    <item type="id" name="hideNavButton">false</item>
+    <item type="id" name="iconBG">false</item>
+    <item type="id" name="appIcon">false</item>
+    <item type="id" name="appName">false</item>
+    <item type="id" name="notificationShow">false</item>
+    <item type="id" name="notificationHide">false</item>
+    <item type="id" name="notificationQuit">false</item>
+    <item type="id" name="appHelp">false</item>
+    <item type="id" name="dragbutton">false</item>
+    <item type="id" name="helpWebView">false</item>
+    <item type="id" name="helpCloseButton">false</item>
+    <item type="id" name="webTitle">false</item>
+    <item type="id" name="openFileButton">false</item>
+    <item type="id" name="saveFileButton">false</item> 
+    <item type="id" name="VideoSrcCloseButton">false</item>   
+    <item type="id" name="openFileCloseButton">false</item>
+    <item type="id" name="saveFileCloseButton">false</item>    
+    <item type="id" name="button_open">false</item>
+    <item type="id" name="editText_save_name">false</item>
+    <item type="id" name="videoFileList">false</item>
+    
+ 
+    <item type="id" name="button_save">false</item>
+   
+    
+</resources>

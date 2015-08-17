@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-36132932-1</string>
+    <string name="app_name">Draw Over Apps</string>
+    <string name="title_activity_draw_surface">Draw Over Apps</string>
+    <string name="button_hide">历史</string>
+    <string name="button_show">Show</string>
+    <string name="button_paint">绘制</string>
+    <string name="button_brush">设置</string>
+    <string name="button_help">主页</string>
+    <string name="button_open">打开</string>
+    <string name="button_save">保存</string>
+    <string name="button_quit">Quit</string>
+    <string name="button_center">批注</string>    
+    <string name="desc_colors">Color Select:</string>
+    <string name="desc_brush_size">Stroke Size:</string>
+    <string name="desc_brush_style">Stroke Style:</string>
+    <string name="desc_brush_per_app_canvas">Per App Canvas</string>
+    <string name="desc_brush_erase_all">Clear Screen</string>
+    <string name="cont_desc_drag_handle">Drag this around to move the menu around the screen</string>
+    <string name="cont_desc_eraser">Eraser</string>
+    <string name="cont_desc_hard">Hard brush</string>
+    <string name="cont_desc_med_hard">Medium hard brush</string>
+    <string name="cont_desc_soft">Soft Brush</string>
+    <string name="cont_desc_close_help">Close help</string>
+    <string name="notification_ticker_text">Pull down for %1$s</string>
+    <string name="notification_content_text">Expand this notification.</string>
+    <string name="notification_content_subtext">Touch Go to start.</string>
+    <string name="notification_content_text_v14">Tap here to show/hide</string>
+    <string name="action_show">Go</string>
+    <string name="action_hide">Hide</string>
+    <string name="action_quit">Quit</string>
+    <string name="toast_min">Touch the screen to bring back buttons</string>
+    <string name="help_title">Ink Over Apps Help:</string>
+    <string name="whats_new_title">Whats new in this Version:</string>
+</resources>

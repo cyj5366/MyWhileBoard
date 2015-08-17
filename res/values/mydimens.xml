@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dummy">0.0dip</dimen>
+    <dimen name="notifcation_height">64.0dip</dimen>
+    <dimen name="side_button_width">55.0dip</dimen>
+    <dimen name="side_button_height">50.0dip</dimen>
+    <dimen name="top_bar_height_android_stock">25.0dip</dimen>
+    <dimen name="nav_center_height">90.0dip</dimen>
+    <dimen name="nav_center_width">90.0dip</dimen>    
+    <dimen name="nav_total_height">180.0dip</dimen>
+    <dimen name="nav_total_width">180.0dip</dimen>
+    <dimen name="nav_min_width">55.0dip</dimen>
+    <dimen name="brush_settings_title_height">35.0dip</dimen>
+    <dimen name="brush_settings_width">110.0dip</dimen>
+    <dimen name="brush_settings_total_height">180.0dip</dimen>
+    <dimen name="display_show_height">270.0dip</dimen>
+    <dimen name="brush_settings_total_width">300.0dip</dimen>    
+    <dimen name="brush_settings_edit_brush_height">80.0dip</dimen>
+    <dimen name="brush_settings_edit_height">70.0dip</dimen>    
+    <dimen name="brush_settings_height">35.0dip</dimen>
+    <dimen name="video_src_height">1080.0dip</dimen>
+    <dimen name="video_src_width">280.0dip</dimen>    
+    <dimen name="history_apk_height">180.0dip</dimen>
+    <dimen name="history_apk_width">480.0dip</dimen>       
+    <dimen name="help_width">300.0dip</dimen>
+    <dimen name="help_height">230.0dip</dimen>
+    <dimen name="text_size">13.0sp</dimen>
+    
+     <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+  
+    <dimen name="surfaceParams_x">63dp</dimen>
+    <dimen name="surfaceParams_y">60dp</dimen>
+    <dimen name="surfaceParams_width">260dp</dimen>
+    <dimen name="surfaceParams_height">150dp</dimen>
+
+    <integer name="videoWindowType_x">104</integer>
+    <integer name="videoWindowType_y">220</integer>
+    <integer name="videoWindowType_width">45</integer>
+    <integer name="videoWindowType_height">1080</integer>
+    <integer name="Widget_width">200</integer>
+    <integer name="Widget_height">140</integer>
+    <integer name="webWidget_x">213</integer>
+    <integer name="webWidget_y">280</integer>
+    <integer name="WeatherWidget_x">427</integer>
+    <integer name="WeatherWidget_y">280</integer>
+    <integer name="appWidget_x">641</integer>
+    <integer name="appWidget_y">280</integer>
+    <integer name="Widget_3dwidth">260</integer>
+    <integer name="Widget_3dheight">390</integer>   
+    
+</resources>

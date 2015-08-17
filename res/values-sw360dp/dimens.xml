@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="brush_settings_title_height">35.0dip</dimen>
+    <dimen name="brush_settings_total_height">335.0dip</dimen>
+    <dimen name="brush_settings_edit_brush_height">90.0dip</dimen>
+    <dimen name="brush_settings_height">50.0dip</dimen>
+    <dimen name="help_width">340.0dip</dimen>
+    <dimen name="help_height">270.0dip</dimen>
+    <dimen name="text_size">13.0sp</dimen>
+</resources>

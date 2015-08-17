@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"    
+    android:background="@color/background" 
+    android:layout_width="@dimen/history_apk_width" 
+    android:layout_height="@dimen/history_apk_height"
+    android:orientation="vertical"> 
+    <ImageView android:id="@+id/HistoryApkCloseButton" 
+        android:layout_width="wrap_content" 
+        android:layout_height="35dip"
+        android:src="@android:drawable/ic_menu_close_clear_cancel" 
+        android:layout_alignParentTop="true" 
+        android:layout_alignParentRight="true" 
+        android:contentDescription="@string/cont_desc_close_help" /> 
+        
+    <ScrollView 
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"        
+        android:layout_below="@id/HistoryApkCloseButton">     
+    
+    <HorizontalScrollView 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content">  
+        <LinearLayout 
+            android:id="@+id/historygrouplayout" 
+            android:layout_width="match_parent" 
+            android:layout_height="160dp"
+            android:orientation="horizontal"/>   
+  </HorizontalScrollView>
+  </ScrollView>
+</RelativeLayout> 
